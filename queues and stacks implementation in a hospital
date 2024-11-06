@@ -1,0 +1,35 @@
+class PatientQueue:
+    def __init__(self):
+        self.queue = []
+    
+    def enqueue(self, patient):
+        """Add a patient to the queue"""
+        self.queue.append(patient)
+    
+    def dequeue(self):
+        """Remove and return the patient who arrived first"""
+        if self.is_empty():
+            return "No patients in queue"
+        return self.queue.pop(0)
+    
+    def is_empty(self):
+        """Check if the queue is empty"""
+        return len(self.queue) == 0
+
+class EmergencyStack:
+    def __init__(self):
+        self.stack = []
+    
+    def push(self, patient):
+        """Add an emergency patient to the stack"""
+        self.stack.append(patient)
+    
+    def pop(self):
+        """Remove and return the most recent emergency patient"""
+        if self.is_empty():
+            return "No emergency patients"
+        return self.stack.pop()
+    
+    def is_empty(self):
+        """Check if the stack is empty"""
+        return len(self.stack) == 0
