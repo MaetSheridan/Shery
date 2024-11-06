@@ -1,0 +1,64 @@
+#include <iostream>
+#include <queue>
+#include <stack>
+#include <string>
+
+class PatientQueue {
+public:
+    void enqueue(const std::string& patient) {
+        queue.push(patient);
+        std::cout << "Patient " << patient << " added to the queue." << std::endl;
+    }
+
+    void dequeue() {
+        if (!queue.empty()) {
+            std::string patient = queue.front();
+            queue.pop();
+            std::cout << "Patient " << patient << " is being seen." << std::endl;
+        } else {
+            std::cout << "No patients in the queue." << std::endl;
+        }
+    }
+
+private:
+    std::queue<std::string> queue;
+};
+
+class EmergencyStack {
+public:
+    void push(const std::string& emergency_patient) {
+        stack.push(emergency_patient);
+        std::cout << "Emergency patient " << emergency_patient << " added to the stack." << std::endl;
+    }
+
+    void pop() {
+        if (!stack.empty()) {
+            std::string emergency_patient = stack.top();
+            stack.pop();
+            std::cout << "Emergency patient " << emergency_patient << " is being seen immediately." << std::endl;
+        } else {
+            std::cout << "No emergency patients in the stack." << std::endl;
+        }
+    }
+
+private:
+    std::stack<std::string> stack;
+};
+
+int main() {
+    PatientQueue patientQueue;
+    EmergencyStack emergencyStack;
+
+    // Regular patients arriving
+    patientQueue.enqueue("Patient A");
+    patientQueue.enqueue("Patient B");
+
+    // Emergency patient arrives
+    emergencyStack.push("Emergency Patient 1");
+
+    // Handling patients
+    emergencyStack.pop();  // Emergency patient handled first
+    patientQueue.dequeue();  // Next regular patient seen
+
+    return 0;
+}
