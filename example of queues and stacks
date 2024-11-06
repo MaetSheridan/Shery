@@ -1,0 +1,11 @@
+# Queue for regular patient arrivals
+patient_queue = PatientQueue()
+patient_queue.enqueue("Patient A")
+patient_queue.enqueue("Patient B")
+print(patient_queue.dequeue())  # Outputs: Patient A
+
+# Stack for emergencies
+emergency_stack = EmergencyStack()
+emergency_stack.push("Emergency Patient X")
+emergency_stack.push("Emergency Patient Y")
+print(emergency_stack.pop())  # Outputs: Emergency Patient Y
